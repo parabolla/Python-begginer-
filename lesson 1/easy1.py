@@ -48,5 +48,7 @@ def calculation_sqrt(a, b, c):
         print("нет корней")
 
 
-calculation_sqrt(12, 7, 1)  # есть корни
-calculation_sqrt(12, 5, 1)  # нет корней
+a = int(input())
+b = int(input())
+c = int(input())
+calculation_sqrt(a, b, c)  # есть корни (12,7,1); нет корней (12,5,1)
