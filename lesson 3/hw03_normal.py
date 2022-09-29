@@ -6,16 +6,15 @@
 # Пример: Дано: [2, -5, 8, 9, -25, 25, 4]   Результат: [3, 5, 2]
 import math
 
-#
 test_list1 = [2, -5, 8, 9, -25, 25, 4]
 a = []  # новый список для записи
 for i in test_list1:
     m = test_list1.index(i)  # проход по индексам
-
     if i < 0:
         continue
     else:
-        if round(math.sqrt(i), 1) != float:
+        # if round(math.sqrt(i), 1) != float:
+        if math.isqrt(i) ** 2 == i:
             i = round(math.sqrt(i))
             a.append(i)
         else:
