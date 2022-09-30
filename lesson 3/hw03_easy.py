@@ -14,8 +14,8 @@
 
 fruits = ["яблоко", "банан", "киви", "арбуз"]
 
-for i in fruits:
-    print('{:>30}'.format(i))
+for number, fruit in enumerate(fruits, 1):
+    print('{:>30} {}'.format(number, fruit))
 
 # Задача-2:
 # Даны два произвольные списка.
