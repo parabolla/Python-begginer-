@@ -60,6 +60,17 @@ print("{} {} {} года".format(days, mons, years))
 # Подсказка:
 # для получения случайного числа используйте функцию randint() модуля random
 
+import random
+
+n = int(input())
+
+new_list = []
+
+for i in range(n):
+    one_num = random.randint(-100, 100)
+    new_list.append(one_num)
+
+print(new_list)
 
 # Задача-4: Дан список, заполненный произвольными целыми числами.
 # Получите новый список, элементами которого будут: 
