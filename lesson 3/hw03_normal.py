@@ -78,3 +78,23 @@ print(new_list)
 # например, lst = [1, 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 2, 4, 5, 6]
 # б) элементы исходного списка, которые не имеют повторений:
 # например, lst = [1 , 2, 4, 5, 6, 2, 5, 2], нужно получить lst2 = [1, 4, 6]
+
+# 1
+lst = [1, 2, 4, 5, 6, 2, 5, 2]
+
+a = set(lst)
+b = list(a)
+print(b)
+
+# 2
+numbers = [1, 2, 4, 5, 6, 2, 5, 2]
+
+unique = []
+
+for number in numbers:
+    if number in unique:
+        continue
+    else:
+        unique.append(number)
+
+print(unique)
