@@ -39,11 +39,10 @@ test_list1 = [5, 6, 7, 3, 4, 5, 6, 4, 5, 6]
 
 a = []  # новый список для записи
 for i in test_list1:
-    m = test_list1.index(i)  # проход по индексам
-    if m % 2 == 0:
-        i = i * 2
+    if i % 2 == 0:
+        i = i / 4
         a.append(i)
-    elif test_list1.index(i) % 2 != 0:
-        i = int(i / 2)
+    else:
+        i = int(i * 2)
         a.append(i)
 print(a)
