@@ -6,17 +6,18 @@ def fibonacci(n, m):
     one = 1
     two = 1
 
-    print(one, two, end=' ')
-
-    for i in range(1, three + 1):
+    # print(one, two, end=' ')
+    a = [one, two]
+    for i in range(1, m + 1):
         one, two = two, one + two
-        a = print(two, end=" ")
+        # a = print(two, end=" ")
+        a.append(two)
 
-    return a
+    return a[n:m]
 
 
 three = int(input("Введите m элемент :"))
-fibonacci(1, three)
+print(fibonacci(1, three))
 
 
 # Задача-2:
