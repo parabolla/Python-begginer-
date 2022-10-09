@@ -34,15 +34,14 @@ print(my_round(3.9999967, 5))
 
 def lucky_ticket(ticket_number):
     a = ticket_number
+    if len((str(a))) == 6:
+        b = str(a)
+        one_pair = int(b[0:1]) + int(b[1:2])
+        last_pair = int(b[-1:-2:-1]) + int(b[-2:-3:-1])
 
-    b = str(a)
-
-    one_pair = int(b[0:1]) + int(b[1:2])
-    last_pair = int(b[-1:-2:-1]) + int(b[-2:-3:-1])
-
-    return one_pair == last_pair
+        return one_pair == last_pair
 
 
 print(lucky_ticket(123006))
 print(lucky_ticket(12321))
-print(lucky_ticket(436770))
+print(lucky_ticket(436771))
