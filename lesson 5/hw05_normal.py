@@ -66,3 +66,17 @@ line_2 = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysm' \
 # 2500-значное произвольное число.
 # Найдите и выведите самую длинную последовательность одинаковых цифр
 # в вышезаполненном файле.
+
+import random
+
+
+def randN(N):
+    min = pow(10, N - 1)
+    max = pow(10, N) - 1
+    return random.randint(min, max)
+
+
+a = (randN(2500))
+file = open("txt.txt", "w")
+file.write(str(a))
+file.close()
