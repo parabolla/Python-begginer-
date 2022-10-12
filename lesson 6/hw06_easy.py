@@ -4,21 +4,16 @@
 # Пример.
 # Исходная программа:
 def avg(a, b):
-    try:
-        a = float(input("a = "))
-        b = float(input("b = "))
-        return (a * b) ** 0.5
-    except ValueError:
-        print("введена строка")
-    except TypeError:
-        print("нельзя совмещать строку и цифры")
+    return (a * b) ** 0.5
 
 
-c = avg("asd", "qwe")
 try:
+    a = float(input("a = "))
+    b = float(input("b = "))
+    c = avg(a, b)
     print("Среднее геометрическое = {:.2f}".format(c))
-except TypeError:
-    print("чего то нехватает")
+except ValueError:
+    print("неверный формат данных, введите int or float")
 
 # ПРИМЕЧАНИЕ: Для решения задач 2-4 необходимо познакомиться с модулями os, sys!
 # СМ.: https://pythonworld.ru/moduli/modul-os.html, https://pythonworld.ru/moduli/modul-sys.html
