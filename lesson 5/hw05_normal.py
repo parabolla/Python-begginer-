@@ -79,4 +79,7 @@ def randN(N):
 a = (randN(2500))
 file = open("txt.txt", "w")
 file.write(str(a))
+with open("txt.txt") as file:
+    for item in file:
+        print(item)
 file.close()
