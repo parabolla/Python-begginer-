@@ -23,8 +23,26 @@ except ValueError:
 # из которой запущен данный скрипт.
 # И второй скрипт, удаляющий эти папки.
 
+import os, sys
+
+for i in range(1, 10):
+    try:
+        os.mkdir("dir_{}".format(i))
+    except FileExistsError:
+        print("Папка с именем {} уже создана".format("dir_{}".format(i)))
+    try:
+        os.rmdir("dir_{}".format(i))
+    except FileNotFoundError:
+        print("Папка с именем {} уже удаленная или отсутсвтует".format("dir_{}".format(i)))
+
 # Задача-3:
 # Напишите скрипт, отображающий папки текущей директории.
+import os
+
+print("Все папки:", os.listdir(path="/"))
 
 # Задача-4:
 # Напишите скрипт, создающий копию файла, из которого запущен данный скрипт.
+import shutil
+
+shutil.copyfile('hw06_easy.py', 'hw06_easy_copy.py')
