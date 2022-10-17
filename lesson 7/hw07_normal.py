@@ -32,17 +32,21 @@ class Obj:
 
 
 class Teachers:
-    def __init__(self, surname, obj="all", num_let):
+    def __init__(self, surname, obj="all", num_let=None):
         self.surname = surname
         self.obj = obj  # наследовать из Obj
         self.num_let = num_let  # наследовать из Number_class
 
 
 # Должен быть как главный класс Родитель
-class Students:
-    def __init__(self, surname, teachers_name, parents, num_let, obj):
+class Students(Obj, Number_class):
+    def __init__(self, name, surname, teachers_name, parents, num_let, obj):
+        self.name = name
         self.surname = surname
         self.teachers_name = teachers_name
         self.parents = parents
-        self.obj = obj
-        self.num_let = num_let  # наследовать из Number_class
+        super(Obj, self).__init__(obj)
+        super(Number_class, self).__init__(num_let)
+
+    def full_name(self):
+        return self.name[0] + "." + self.surname[0]
