@@ -23,6 +23,13 @@ class School:
         self.name = name
         self.surname = surname
 
+    def __repr__(self):
+        return self.num_let
+
+    def all_num_lets(self):
+        print("Классы школы: ")
+        print(self.num_let)
+
 
 class Teachers(School):
     def __init__(self, surname, obj, num_let):
@@ -43,11 +50,27 @@ class Students(School):
 obj1 = School("math")
 obj2 = School("rus_lang")
 
-num_let1 = School("5V")
-num_len2 = School("5K")
+num_let1 = School("5A")
+num_let2 = School("5B")
 
-Teacher1 = Teachers("Ivanov", obj1, num_let1)
-Teacher2 = Teachers("Petrov", [obj1, obj2], [num_let1, num_len2])
+Teacher1 = Teachers("Ivanov",
+                    obj1,
+                    num_let1)
+Teacher2 = Teachers("Petrov",
+                    [obj1, obj2],
+                    [num_let1, num_let2])
 
-Pupil1 = Students("Max", "Sidorov", "Sidorova V.V.", "Sidorov M.P.", num_let1)
-Pupil2 = Students("Alex", "Antonov", "Antonova D.D.", "Antonov S.Q.", num_let1)
+Pupil1 = Students("Max",
+                  "Sidorov",
+                  "Sidorova V.V.",
+                  "Sidorov M.P.",
+                  num_let1)
+
+Pupil2 = Students("Alex",
+                  "Antonov",
+                  "Antonova D.D.",
+                  "Antonov S.Q.",
+                  num_let1)
+
+num_let_all = School(num_let=[num_let1, num_let2])
+num_let_all.all_num_lets()
