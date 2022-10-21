@@ -17,12 +17,25 @@ x = 2.5
 #  (т.е. 2 символа для дня, 2 - для месяца, 4 - для года)
 
 # Пример корректной даты
-date = '01.11.1985'
+# date = '01.11.1985'
+#
+# # Примеры некорректных дат
+# date = '01.22.1001'
+# date = '1.12.1001'
+# date = '-2.10.3001'
 
-# Примеры некорректных дат
-date = '01.22.1001'
-date = '1.12.1001'
-date = '-2.10.3001'
+import datetime
+
+date = '32.12.9999'
+year = int(date[6:10])
+month = int(date[3:5])
+day = int(date[0:2])
+try:
+    a = datetime.date(year, month, day)  # приводим к числу
+except ValueError as e:
+    if e == ValueError("day is out of range for month"):
+        print("sda")
+    print("Invalid format - {}:".format(e))
 
 # Задание-3: "Перевёрнутая башня" (Задача олимпиадного уровня)
 #
