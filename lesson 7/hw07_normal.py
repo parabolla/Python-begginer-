@@ -33,18 +33,14 @@ class School:
 
 class Teachers(School):
     def __init__(self, surname, obj, num_let):
-        super(Teachers, self).__init__(surname)
-        super(Teachers, self).__init__(obj)  # предметы
-        super(Teachers, self).__init__(num_let)  # наименование классов школы
+        super(Teachers, self).__init__(surname, obj, num_let)
 
 
 class Students(School):
     def __init__(self, name, surname, parent_m, parent_f, num_let):
-        super(Students, self).__init__(name)
-        super(Students, self).__init__(surname)
+        super(Students, self).__init__(name, surname, num_let)
         self.parent_m = parent_m
         self.parent_f = parent_f
-        super(Students, self).__init__(num_let)  # наименование классов школы
 
 
 obj1 = School("math")
@@ -73,4 +69,4 @@ Pupil2 = Students("Alex",
                   num_let1)
 
 num_let_all = School(num_let=[num_let1, num_let2])
-num_let_all.all_num_lets()
+num_let_all.all_num_lets()  # все классы
