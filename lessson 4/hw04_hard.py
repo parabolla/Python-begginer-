@@ -44,3 +44,12 @@ print(c)
 # Подсказка:
 # Чтобы получить список больших букв русского алфавита:
 # print(list(map(chr, range(ord('А'), ord('Я')+1))))
+
+import re
+
+file = open("fruits.txt", "r")
+a = file.read()
+# print(a)
+result = re.findall(r'\b[А]\w+', a)
+print(result)
+file.close()
