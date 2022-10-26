@@ -22,3 +22,4 @@ if __name__ == "__main__":
     new_tag = tag("bmp", "456", "text", "http")
     one_more_tag = alt_tag("jpeg", "789", "text1", "https")
     print(new_tag, one_more_tag)
+   
