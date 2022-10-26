@@ -20,7 +20,7 @@ class Text():
 
     def get(self):
         return "<p>{}</p>".format(self.text)
-
+    
 
 class Link():
     def __init__(self, link):
