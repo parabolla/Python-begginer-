@@ -20,7 +20,7 @@ class Text():
 
     def get(self):
         return "<p>{}</p>".format(self.text)
-    
+
 
 class Link():
     def __init__(self, link):
@@ -38,3 +38,4 @@ lint1 = Link("rel=stylesheet")
 tag = [img1, inp1, text1, lint1]
 for t in tag:
     print(t.get())
+   
