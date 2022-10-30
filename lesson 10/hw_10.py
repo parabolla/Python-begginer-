@@ -48,7 +48,14 @@ class Employee(People):
         self.__salary = "уволен"
 
 
-emp1 = Employee("Petrov", "Petr", "24.3.2024", 89232432030, 1, 22133, 200)
+emp1 = Employee("Petrov",
+                "Petr",
+                "24.3.2024",
+                89232432030,
+                1,
+                22133,
+                200)
+
 # print(emp1.telnum, emp1.birthday)
 # del emp1.dpcode
 # print(emp1.salary)
