@@ -14,7 +14,7 @@ class Writer1(threading.Thread):
 
     def run(self):
         while True:
-            event.set()
+            event.set()  # ждем выполнения первого писателя
             lock.acquire()  # блокируем
             file = open("txt.txt", "a")
             file.write("строка2")
@@ -32,7 +32,7 @@ class Writer2(threading.Thread):
 
     def run(self):
         while True:
-            event.set()
+            event.set()  # ждем выполнения второго писателя
             lock.acquire()
             file = open("txt.txt", "a")
             file.write("строка3")
@@ -49,10 +49,10 @@ class Readers(threading.Thread):
 
     def run(self):
         while True:
-            event.wait()
+            event.wait()  # после писателей, читаем текст
             event.set()
             lock.acquire()
-            file = open("txt.txt", "a")
+            file = open("txt.txt", "r")
             print("мы все прочитали")
             file.close()
             lock.release()
