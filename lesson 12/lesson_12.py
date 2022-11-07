@@ -22,10 +22,9 @@ while True:
     # }
     print(request.decode())
     lock.release()
-    time.sleep(1)
+    time.sleep(0.2)
     lock.acquire()
-    conn.sendall(request)
+    conn.sendall("back send".encode())
     lock.release()
-    time.sleep(1)
-    # socket.send_fds()
+    time.sleep(0.2)
     conn.close()
