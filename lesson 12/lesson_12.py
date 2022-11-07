@@ -7,9 +7,6 @@ hour = time.hour
 min = time.minute
 
 
-# json_str = {"hours": hour, "mins": min, "req": request}
-
-
 def run():
     server_socket = socket.socket()
     server_socket.bind(("localhost", 6666))
@@ -18,14 +15,6 @@ def run():
     while True:
         conn, addr = server_socket.accept()  # подключениек клиента
         request = conn.recv(1024)  # размер передоваемого файла
-        #
-        # json_str = [hour, min, request]
-        # new = json.dumps(json_str)
-        # #
-        # conn.sendall(new)  # ответ
-
-        # session = addr
-
         conn.sendall(
             "{}\n{}:{} Добрый день, направляю ваш запрос в СП".format(request.decode("utf-8"), time.hour,
                                                                       time.minute).encode(
