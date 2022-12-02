@@ -11,20 +11,41 @@
 # Реализуйте классы сотрудников так, чтобы на вход функции-конструктора
 # каждый работник получал строку из файла
 
-class Workers():
+class Workers:
     def __init__(self, name, fname, salary, title, hours, clock_rate):
         self.name = name
         self.fname = fname
-        self.salary = salary  # зарпалата
+        self.salary = int(salary)  # зарпалата
         self.title = title  # должность
-        self.hours = hours  # норма часов
-        self.clock_rate = clock_rate  # отработанно часов
-        self.norm_one_hours = salary / hours  # часовая ставка
+        self.hours = int(hours)  # норма часов
+        self.clock_rate = int(clock_rate)  # отработанно часов
 
-        def get_salary():  # расчет зарплаты
-            if clock_rate < hours:
-                return hours * (salary / hours)
-            elif clock_rate == hours:
-                salary
-            else:
-                return (hours - clock_rate) * ((salary / hours) * 2)
+    def get_salary(self):  # расчет зарплаты
+        if self.hours > self.clock_rate:
+            return self.name, self.fname, self.clock_rate * (self.salary / self.hours)
+        elif self.clock_rate == self.hours:
+            return self.name, self.fname, self.salary
+        else:
+            return self.name, self.fname, abs(self.hours - self.clock_rate) * (
+                    (self.salary / self.hours) * 2) + self.salary
+
+
+with open("hours_of", 'r') as hours:
+    new_list2 = [line.split() for line in hours]
+
+with open("workers", 'r') as workers:
+    new_list = [line.split() for line in workers]
+    # Workers(new_list[1][1],new_list[1][1])
+    # print(type(new_list[0][4]))
+
+workers = Workers(new_list[1][0], new_list[1][1], new_list[1][2],
+                  new_list[1][3], new_list[1][4], new_list2[1][2])
+print(workers.get_salary())
+# workers_list = []
+# with open("workers", "r") as workers:
+#     for worker in workers.readlines():
+#         print(worker)
+#         workers = Workers(worker)
+# worker1 = Workers("Петр", "Алексеев", 22000, "Прораб", 140, 140)
+# a = worker1.get_salary()
+# print(a)
