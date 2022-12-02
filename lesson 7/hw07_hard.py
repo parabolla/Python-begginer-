@@ -11,7 +11,7 @@
 # Реализуйте классы сотрудников так, чтобы на вход функции-конструктора
 # каждый работник получал строку из файла
 
-class Workers():
+class Workers:
     def __init__(self, name, fname, salary, title, hours, clock_rate):
         self.name = name
         self.fname = fname
@@ -19,12 +19,17 @@ class Workers():
         self.title = title  # должность
         self.hours = hours  # норма часов
         self.clock_rate = clock_rate  # отработанно часов
-        self.norm_one_hours = salary / hours  # часовая ставка
 
-        def get_salary():  # расчет зарплаты
-            if clock_rate < hours:
-                return hours * (salary / hours)
-            elif clock_rate == hours:
-                salary
-            else:
-                return (hours - clock_rate) * ((salary / hours) * 2)
+    def get_salary(self):  # расчет зарплаты
+        if self.hours > self.clock_rate:
+            return self.name, self.fname, self.clock_rate * (self.salary / self.hours)
+        elif self.clock_rate == self.hours:
+            return self.name, self.fname, self.salary
+        else:
+            return self.name, self.fname, abs(self.hours - self.clock_rate) * (
+                    (self.salary / self.hours) * 2) + self.salary
+
+
+worker1 = Workers("Петр", "Алексеев", 22000, "Прораб", 140, 140)
+a = worker1.get_salary()
+print(a)
