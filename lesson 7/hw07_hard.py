@@ -37,10 +37,11 @@ with open("workers", 'r') as workers:
     new_list = [line.split() for line in workers]
     # Workers(new_list[1][1],new_list[1][1])
     # print(type(new_list[0][4]))
-
-workers = Workers(new_list[1][0], new_list[1][1], new_list[1][2],
-                  new_list[1][3], new_list[1][4], new_list2[1][2])
-print(workers.get_salary())
+    # print(len(new_list))
+for i in range(1, len(new_list)):
+    workers = Workers(new_list[i][0], new_list[i][1], new_list[i][2],
+                      new_list[i][3], new_list[i][4], new_list2[i][2])
+    print(workers.get_salary())
 # workers_list = []
 # with open("workers", "r") as workers:
 #     for worker in workers.readlines():
