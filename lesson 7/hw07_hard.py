@@ -34,19 +34,16 @@ with open("hours_of", 'r') as hours:
     new_list2 = [line.split() for line in hours]
 
 with open("workers", 'r') as workers:
-    new_list = [line.split() for line in workers]
+    for new_list in workers.readlines():
+        try:
+            workers = Workers(*new_list.split())
+        except IndexError:
+            continue
+            print("Невереные данные в строке: {}".format(new_list))
+        except ValueError:
+            continue
+            print("Проверьте данные в строке: {}".format(new_list))
 
-for i in range(len(new_list)):
-    try:
-        workers = Workers(new_list[i][0], new_list[i][1], new_list[i][2],
-                          new_list[i][3], new_list[i][4], new_list2[i][2])
-    except IndexError:
-        print("Невереные данные в строке: {}".format(i))
-        continue
-    except ValueError:
-        print("Проверьте данные в строке: {}".format(i))
-        continue
-
-    with open("salaries_workers", "a") as sw:  # записываем в отдельный файл зарплаты
-        sw.write(str(workers.get_salary()))
-        sw.write("\n")
+with open("salaries_workers", "a") as sw:  # записываем в отдельный файл зарплаты
+    sw.write(str(workers.get_salary()))
+    sw.write("\n")
