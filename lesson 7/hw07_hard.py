@@ -43,8 +43,7 @@ with open("workers", 'r') as workers:
                 worker.salary = int(salary)
                 worker.title = title
                 worker.clock_rate = int(clock_rate)
-
-with open("salaries_workers", "a") as sw:  # записываем в отдельный файл зарплаты
-    for worker in workers_list:
-        sw.write(str(worker.get_salary()))
-        sw.write("\n")
+                with open("salaries_workers", "a") as sw:  # записываем в отдельный файл зарплаты
+                    sw.write(str(worker.get_salary()))
+                    sw.write("\n")
+                    print(worker.get_salary())
