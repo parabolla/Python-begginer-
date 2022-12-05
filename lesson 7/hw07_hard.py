@@ -12,7 +12,7 @@
 # каждый работник получал строку из файла
 
 class Workers:
-    def __init__(self, name, fname, salary, title, hours, clock_rate):
+    def __init__(self, name, fname, salary=0, title="", hours=0, clock_rate=0):
         self.name = name
         self.fname = fname
         self.salary = int(salary)  # зарпалата
@@ -31,19 +31,20 @@ class Workers:
 
 
 with open("hours_of", 'r') as hours:
-    new_list2 = [line.split() for line in hours]
+    hours = [line.split() for line in hours][1:]
+    workers_list = [Workers(first_name, last_name, hours=hours) for first_name, last_name, hours in hours]
 
 with open("workers", 'r') as workers:
-    for new_list in workers.readlines():
-        try:
-            workers = Workers(*new_list.split())
-        except IndexError:
-            continue
-            print("Невереные данные в строке: {}".format(new_list))
-        except ValueError:
-            continue
-            print("Проверьте данные в строке: {}".format(new_list))
+    workers = [line.split() for line in workers][1:]
+
+    for name, fname, salary, title, clock_rate in workers:
+        for worker in workers_list:
+            if name == worker.name and fname == worker.fname:
+                worker.salary = int(salary)
+                worker.title = title
+                worker.clock_rate = int(clock_rate)
 
 with open("salaries_workers", "a") as sw:  # записываем в отдельный файл зарплаты
-    sw.write(str(workers.get_salary()))
-    sw.write("\n")
+    for worker in workers_list:
+        sw.write(str(worker.get_salary()))
+        sw.write("\n")
