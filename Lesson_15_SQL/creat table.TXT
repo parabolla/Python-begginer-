@@ -1,0 +1,27 @@
+CREATE TABLE competetion (
+  	competetion_id INTEGER PRIMARY KEY not NULL,
+  	competetion_name VARCHAR,
+  	world_record TIME,
+  	set_data DATE
+);
+
+
+CREATE TABLE results (
+  	competetion_id INTEGER REFERENCES competetion(competetion_id) on DELETE CASCADE on UPDATE CASCADE not NULL,
+  	sportsman_id INTEGER PRIMARY KEY,
+  	results TIME,
+  	hold_date DATE,
+  	city VARCHAR  	  	
+);
+
+CREATE TABLE sportman (
+  	ranks INTEGER PRIMARY KEY,
+  	sportsmans_id INTEGER REFERENCES results(sportsman_id) on DELETE CASCADE on UPDATE CASCADE not NULL,
+  	sportsman_name VARCHAR,
+  	year_of_birth DATE,
+  	personal_record time,
+  	country VARCHAR
+);
+
+CREATE TABLE new_table4 AS
+SELECT sportsman_name,year_of_birth,personal_record,country from results INNER join sportman on results.sportsman_id = sportman.sportsmans_id;
